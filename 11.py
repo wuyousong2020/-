@@ -65,8 +65,9 @@ y = np.array([0,0,1]) #输入正确类别
 print(net.loss(x,y))
 
 f =  lambda w: net.loss(x,y)
-for i in range(10000):
+for i in range(500):
     dw = gradient_descent(f,net.W) #需要更新的主要是W
+    print('损失值变为： ',cross_entropy_error(_softmax(np.dot(x,dw)),y))
 print(dw)
 
 print('损失值变为： ',cross_entropy_error(_softmax(np.dot(x,dw)),y))
